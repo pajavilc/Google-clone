@@ -1,0 +1,455 @@
+html,
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0 0;
+  padding: 0 0;
+}
+body *{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 5%;
+    display: flex;
+    justify-content: flex-end;
+}
+header .content{
+    height: 100%;
+    width: 200px;
+    margin-right: 20px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+header a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.9em;
+    font-style: none;
+}
+header a:hover{
+    text-decoration: underline;
+}
+#drop .dropContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    position: absolute;
+
+    background-color: white;
+    z-index: 2000;
+    right: 0;
+    top: 70px;
+    width: 280px;
+    height:420px;
+    border-radius: 9px;
+    border: solid rgb(197, 197, 197) 1px;
+    box-shadow: inset 0px 0px 1px rgb(197, 197, 197);
+    box-shadow: 0px 0px 6px rgba(75, 72, 72, 0.3);
+}
+#drop .dropContent .scrollBarStyle{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 5px 5px 0;
+}
+#drop .dropContent .blocks{
+    margin: 20px 0 0 20px;
+    width: calc(100% - 20px);
+ 
+}
+#drop .dropContent .blocks .block{
+    display: inline-block;
+    width: calc( calc( 100% - 20px ) / 3 );
+    margin-bottom: 12px;
+    height: fit-content;
+}
+#drop .dropContent .blocks .block.hold{
+    visibility: hidden;
+}
+#drop .dropContent .blocks .block p{
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    line-height: 1em;
+    padding: 30px;   
+}
+#drop .dropContent .blocks .block p:hover{
+    background-color: rgb(237, 250, 255);
+    border-radius: 12px;
+    cursor: pointer;
+}
+#drop .dropContent .blocks .block p:active{
+    background-color: rgb(217, 241, 250);
+}
+
+#drop .dropContent a{
+    position:static;
+    text-decoration: none;
+    padding: 12px 24px;
+    color: rgb(6, 99, 206);
+    margin:  25px 0 25px 0;
+    border: solid rgb(197, 197, 197) 1px;
+    border-radius: 5px;
+}
+#drop .dropContent a:hover{
+    border-color: rgb(117, 189, 248);
+    background-color: rgb(230, 246, 255);
+}
+#drop .dropContent a:active{
+    border-color: rgb(117, 189, 248);
+    background-color: rgb(181, 211, 228);
+}
+#drop.show .dropContent{
+visibility: visible;
+}
+.dot{
+    width: 4px;
+    height: 4px;
+    margin-bottom: 1.5px;
+    border-radius: 10px;
+    background-color: rgb(88, 85, 85);
+}
+.dot_row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+header .apps{
+    display: flex;
+    justify-content: space-evenly;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+header .apps:hover::after,
+header #drop.show .apps::after {
+    content: '';
+    z-index: -5;
+    padding: 10px;
+    width: inherit;
+    height: inherit;
+    transform: translateY(-10px);
+    border-radius: 90px;
+    position: absolute;
+    background-color: rgba(41, 41, 41, 0.09);
+}
+header .encaps{
+    width: 36px;
+    height: 36px;
+    position: relative;
+}
+#user_image{
+ width: 36px;
+ height: 36px;
+ cursor: pointer;
+}
+header .encaps:hover::after{
+    content: '';
+    z-index: -5;
+    padding: 1px;
+    width: inherit;
+    height: inherit;
+    border-radius: 90px;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background-color: rgba(41, 41, 41, 0.09);
+}
+.main{
+    position: relative;
+    height: 85%;
+    width: 100%;
+}
+#center{
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#center > img,
+#form .searchbar{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#center > img{
+    top: -20px;
+}
+#form .searchbar{
+    display: flex;
+    align-items: center;
+    margin: px 0 0 0;
+    padding: 0 20px;
+    justify-content: space-between;
+    height: 43px;
+    width: min(450px,calc(90% - 24px));
+    border: solid rgb(197, 197, 197) 1px;
+    border-radius: 24px;
+    box-shadow: inset 0px 0px 1px rgb(197, 197, 197);
+    margin: 0 0 12px 0;
+}
+#form .searchbar:hover,
+#form .searchbar:focus-within{
+    box-shadow: 0px 0px 6px rgba(75, 72, 72, 0.3);
+    border: none;
+}
+#form .searchbar .right,
+#form .searchbar .left{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+#form .searchbar .left{
+    width: 95%;
+}
+#form .searchbar img{
+    vertical-align: middle;
+    filter:opacity(60%);
+    height: 55%;
+}
+#form .searchbar input[type=text]{
+    font-size: medium;
+    vertical-align: middle;
+    height: 80%;
+    width: 100%;
+    margin-left: 20px;
+    border: none;
+}
+#form .searchbar input[type=text]:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+#form #cross{
+    visibility: hidden;
+    position: absolute;
+    height: 100%;
+    cursor: pointer;
+}
+#form #cross.show{
+    visibility: visible;
+    position: inherit;
+}
+
+#form #cross:hover{
+filter: opacity(90%);
+}
+#center .buttons{
+    position: relative;
+    top:20px;
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    height: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#center .buttons button{
+    margin: 0 5px;
+    height: fit-content;
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+#center .buttons button:hover{
+    margin: -1px 4px;
+    border: 1px solid rgb(200, 200, 200);
+}
+#center .buttons button:active{
+    margin: -1px 4px;
+    border: 1px solid rgb(25, 100, 149);
+    border-radius: 3px;
+}
+footer{
+    color: grey;
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(235, 235, 235);
+}
+footer .up{
+    height: fit-content;
+    border-bottom: solid 1px rgb(192, 192, 192);
+}
+footer .up p{
+    text-indent: 25px;
+    padding: 12px;
+}
+footer .down{
+    display: flex;
+    padding: 0 20px;
+    height: fit-content;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer .down > * > * {
+    
+    display: inline-block;
+    margin:12px;
+}
+footer a,
+footer .settings p{
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+footer a:hover,
+footer .settings p:hover{
+    text-decoration: underline;
+}
+footer .settings{
+    position: relative;
+}
+footer .settings .content{
+    visibility: hidden;
+    position: absolute;
+    text-indent: 15px;
+    height: fit-content;
+    z-index: 2000;
+    width: 200px;
+    bottom: 30px;
+    right: 0;
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+}
+footer .settings .content p{
+    margin-bottom: 24px;
+}
+footer .settings .content p:first-of-type{
+    margin-top: 12px;
+}
+footer .settings .content p:last-of-type{
+    margin-bottom: 12px;
+}
+footer .settings.show .content{
+    visibility: visible;
+    position: absolute;
+}
+body.dark{
+    background-color: #272729;
+    color: white;
+}
+body.dark .apps > * > *{
+    background-color: white;
+}
+body.dark header .apps:hover::after,
+body.dark header #drop.show .apps::after{
+    background-color: #37373a;
+}
+body.dark header .encaps:hover::after{
+    background-color: #37373a;
+}
+body.dark #user_image{
+    filter: invert(100%);
+}
+body.dark #googleLogo{
+    filter: grayscale(100%) brightness(0) invert(100%);
+}
+body.dark #form .searchbar img{
+    filter: opacity(60%) invert(100%);
+}
+body.dark #form .searchbar input[type=text]{
+    background-color: #272729;
+    color: white;
+}
+body.dark #form .searchbar:hover,
+body.dark #form .searchbar:focus-within{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    background-color: #37373a;
+    border: none;
+}
+body.dark #form .searchbar:hover input[type=text],
+body.dark #form .searchbar:focus-within input[type=text]{
+    background-color: #37373a;
+}
+body.dark #form .searchbar{
+    border: solid rgb(138, 138, 138) 1px;
+    border-radius: 24px;
+    box-shadow: inset 0px 0px 1px rgb(138, 138, 138) ;
+}
+body.dark #center .buttons button{
+    background-color:#3f3f42;
+    color: white;
+    border: none;
+}
+body.dark #center .buttons button:hover{
+    border: 1px solid rgb(134, 130, 130);
+}
+body.dark footer > *{
+    background-color:#1a1a1b;
+    color: rgb(192, 189, 189);
+}
+body.dark footer .up{
+    border-bottom: 1px solid #2a2a2c;
+}
+body.dark #drop .dropContent{
+    background-color: #313133;
+    border: none;
+    box-shadow: 0 0 4px 1px black;
+
+}
+body.dark #drop .dropContent .blocks .block p:hover{
+    background-color: #2a2a2c;
+    border-radius: 12px;
+    cursor: pointer;
+}
+body.dark #drop .dropContent a{
+    color: rgb(55, 131, 231);
+}
+body.dark #drop .dropContent a:hover{
+    background-color: #3b3b3f;
+    border: solid rgb(197, 197, 197) 1px;
+}
+body.dark #drop .dropContent .blocks .block p:active{
+    background-color: #3b3b3f;
+}
+body.dark footer .settings .content{
+    background-color:#2a2a2c;
+    border-color: #66666d;
+}
+body .block.hide{
+ display: none;
+}
+#credit{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#credit a{
+    text-decoration: none;
+    color: blue
+}
+body.dark #credit a{
+    color: rgb(146, 224, 255);
+}
+::-webkit-scrollbar {
+    width: 7px;
+
+  }
+  ::-webkit-scrollbar-track {
+      background-color:rgba(0, 0, 0, 0); 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(107, 107, 107);
+    border-radius: 12px;
+
+  }
+@media only screen and (max-width: 1200px) {
+    footer .down {
+    justify-content: center;
+    }
+}
