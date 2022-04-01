@@ -175,10 +175,12 @@ header .encaps:hover::after{
 }
 #center > img,
 #form .searchbar{
+    box-sizing: border-box;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
+
 #center > img{
     top: -20px;
 }
@@ -189,7 +191,7 @@ header .encaps:hover::after{
     padding: 0 20px;
     justify-content: space-between;
     height: 43px;
-    width: min(450px,calc(90% - 24px));
+    width: min(550px,calc(90% - 24px));
     border: solid rgb(197, 197, 197) 1px;
     border-radius: 24px;
     box-shadow: inset 0px 0px 1px rgb(197, 197, 197);
@@ -268,6 +270,9 @@ filter: opacity(90%);
     margin: -1px 4px;
     border: 1px solid rgb(25, 100, 149);
     border-radius: 3px;
+}
+#googleLogo{
+    width: 300px;
 }
 footer{
     color: grey;
